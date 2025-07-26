@@ -1,0 +1,68 @@
+{
+    // General Settings
+    "layer": "overlay",
+    "position":"bottom",
+    "mode":"dock",
+    "modifier-reset": "release",
+    "margin-bottom": 0,
+    "spacing": 0,
+    // Load Modules
+    "include": [
+        "~/.config/ml4w/settings/waybar-quicklinks.json",
+        "~/.config/waybar/modules.json",
+    ],
+
+    // Modules Left
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window",
+    ],
+
+    // Modules Center
+   
+ "modules-right": [
+        "clock"
+ ,"network", "pulseaudio", "battery", "custom/power"],
+
+  "clock": {
+   "format": "{:%a %d %I:%M}",
+    "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+  },
+
+  "network": {
+    "format-wifi": "<span size='13000' foreground='#f5e0dc'> </span>{essid}",
+    "format-ethernet": "",
+    "format-disconnected": "",
+    "tooltip": true
+  },
+    "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-muted": "",
+    "format-icons": {
+      "default": ["", ""]
+    },
+    "on-click":"pavucontrol"
+  },
+
+  "battery": {
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "format": "<span size='13000' foreground='#a6e3a1'>{icon}</span> {capacity}%",
+    "format-warning": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {capacity}%",
+    "format-critical": "<span size='13000' foreground='#E38C8F'>{icon} </span> {capacity}%",
+    "format-charging": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-plugged": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-alt": "<span size='13000' foreground='#B1E3AD'>{icon} </span> {time}",
+    "format-full": "<span size='13000' foreground='#B1E3AD'> </span>{capacity}%",
+    "format-icons": ["", "", "", "", ""],
+    "tooltip-format": "{time}"
+  },
+
+  "custom/power": {
+    "format": "",
+    "on-click": "~/.config/rofi/powermenu/mine/powermenu.sh",
+    "tooltip": "Logout / Power Menu"
+  }
+}
